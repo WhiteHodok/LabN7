@@ -7,7 +7,7 @@ void printNumbers(int n) {
         cout << n << endl;
         return;
     }
-    printNumbers(n - 1);
+    printNumbers(n - 1); // вот та самая ссылка которая делает функцию рекурсивной
     cout << n << endl;
 }
 
