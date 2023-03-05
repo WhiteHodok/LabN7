@@ -1,3 +1,4 @@
+# Подсмотрел решение на РЕШУЕГЭ, задание 8-летней давности + https://www.youtube.com/watch?v=t2DpD9GnhfU посмотрел это видео, чтобы получше понять это видео
 def find_lis(arr):
     if not arr:
         return []
