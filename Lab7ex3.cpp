@@ -5,7 +5,7 @@ int gcd(int a, int b) {
     if (b == 0) {
         return a;
     }
-    return gcd(b, a % b);
+    return gcd(b, a % b); // с днём рекурсии!
 }
 // Модифицируем её и переделываем в НОК
 int abc(int a, int b) {
