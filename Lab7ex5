@@ -1,0 +1,41 @@
+#include <iostream>
+
+void findLIS(int arr[], int n, int &maxLIS, int &maxIndex) {
+    if (n == 1) {
+        maxLIS = 1;
+        maxIndex = 0;
+        return;
+    }
+    int currentLIS = 1;
+    int currentMaxIndex = n - 1;
+    for (int i = 0; i < n - 1; i++) {
+        int subLIS;
+        int subMaxIndex;
+        findLIS(arr, i + 1, subLIS, subMaxIndex);
+        if (arr[i] < arr[n - 1] && subLIS + 1 > currentLIS) {
+            currentLIS = subLIS + 1;
+            currentMaxIndex = i;
+        }
+    }
+    maxLIS = currentLIS;
+    maxIndex = currentMaxIndex;
+}
+
+void printLIS(int arr[], int n) {
+    int maxLIS;
+    int maxIndex;
+    findLIS(arr, n, maxLIS, maxIndex);
+    if (maxLIS == 1) {
+        std::cout << arr[maxIndex] << std::endl;
+        return;
+    }
+    printLIS(arr, maxIndex + 1);
+    std::cout << arr[n - 1] << std::endl;
+}
+
+int main() {
+    int arr[] = {3, 4, -1, 0, 6, 2, 3};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    printLIS(arr, n);
+    return 0;
+}
